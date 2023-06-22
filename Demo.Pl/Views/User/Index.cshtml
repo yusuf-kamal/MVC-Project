@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ApplicationUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Users</h1>
+<br />
+<br />
+<br />
+<br />
+
+
+<nav class="navbar bg-body-tertiary">
+    <div class="container ms-5">
+        <form class="d-flex" role="search" asp-action="Index" asp-controller="Users">
+            <input class="form-control" name="SearchValue" placeholder="Search">
+            <input value="Search" class="btn btn-outline-success"  type="submit">>
+        </form>
+    </div>
+</nav>
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-striped table-hover mt-5">
+        <thead>
+            <tr>
+
+                <td>@Html.DisplayNameFor(m=>m.Id)</td>
+                <td>@Html.DisplayNameFor(m=>m.UserName)</td>
+                <td>@Html.DisplayNameFor(m=>m.Email)</td>
+                <td>@Html.DisplayNameFor(m=>m.PhoneNumber)</td>
+                <td>@Html.DisplayNameFor(m=>m.IsAgree)</td>
+                <td>Details</td>
+                <td>Update</td>
+                <td>Delete</td>
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m=> item.Id)</td>
+                    <td>@Html.DisplayFor(m=> item.UserName)</td>
+
+                    <td>@Html.DisplayFor(m=> item.Email)</td>
+                    <td>@Html.DisplayFor(m=> item.PhoneNumber)</td>
+                    <td>@Html.DisplayFor(m=> item.IsAgree)</td>
+
+                    <partial name="_ButtonsPartialView" model="item.Id.ToString()" />
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="mt-4 alert alert-warning">
+        <h3> No Users!!</h3>
+    </div>
+}
+

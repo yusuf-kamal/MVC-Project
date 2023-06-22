@@ -1,0 +1,41 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "SignIn";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<div class="w-50 container">
+    <form asp-controller="Home" asp-action="Index">
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" asp-for="Email" placeholder="Email address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <span asp-validation-for="@Model.Email"></span>
+        </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" asp-for="Password" placeholder="Password" class="form-control" id="exampleInputPassword1">
+        <span asp-validation-for="@Model.Password"></span>
+
+          </div>
+
+       
+
+       <div class="mb-3 form-check">
+
+        <input type="checkbox" asp-for="RememberMe" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">RememberMe</label>
+        <div class="clearfix"></div>
+       </div>
+        
+        <input type="submit" @*asp-action="SignIn"*@ value="SIGNIN" class="btn btn-primary">
+    </form>
+    <p>You Don't have an account ?<a asp-action="SignUp">Register Now! </a></p>
+    <p><a asp-action="ForgetPassword">Forget password! </a></p>
+</div>
+
+@*@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}*@

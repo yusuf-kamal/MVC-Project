@@ -1,0 +1,67 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+@*<div class="w-50 container">
+    <form asp-action="SignIn">
+    <div class="mb-3">
+     <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" asp-for="Email" placeholder="Email address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <span asp-validation-for="Email"></span>
+   </div>
+
+   <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" asp-for="Password"placeholder="Password" class="form-control" id="exampleInputPassword1">
+        <span asp-validation-for="Password"></span>
+
+   </div>   
+
+     <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-">Password</label>
+        <input type="password" asp-for="ConfirmPassword" placeholder="Confirm Password" class="form-control" id="exampleInputPassword1">
+        <span asp-validation-for="ConfirmPassword"></span>
+
+     </div>
+
+    <div class="mb-3 form-check">  
+     
+     <input type="checkbox" asp-for="IsAgree" class="form-check-input" id="exampleCheck1">
+     <label class="form-check-label" for="exampleCheck1">I Agree To the Terms & Condition</label>
+   </div>
+
+        <input type="submit" value="SIGNUP" >
+  </form>
+    <p>Don't have an account ?<a asp-action="SignIn">Login Now! </a></p>
+</div>*@
+
+
+<div class="main-agileinfo">
+			<div class="agileits-top">
+            <form asp-action="SignUp" method="post">
+              <input class="text" type="email" asp-for="Email" placeholder="Username" required="">
+              <span asp-validation-for="Email"></span>
+
+
+              <input class="text" type="password" asp-for="Password" placeholder="Password" required="">
+              <span asp-validation-for="Password"></span>
+
+
+              <input class="text w3lpass" type="password" asp-for="ConfirmPassword" placeholder="Confirm Password" required="">
+            <span asp-validation-for="ConfirmPassword"></span>
+
+					<div class="wthree-text">
+						<label class="anim">
+							<input asp-for="IsAgree" class="checkbox" required="">
+							<span>I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="SIGNUP">
+				</form>
+             <p>Don't have an Account? <a asp-action="SignIn"> Login Now!</a></p>
+			</div>
+		</div>
+
